@@ -172,6 +172,48 @@
             color: #f4511e;
         }
 
+        .slideanim {
+            visibility:hidden;
+        }
+
+        .slide {
+            /* The name of the animation */
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            /* The duration of the animation */
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            /* Make the element visible */
+            visibility:visible;
+        }
+
+        /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in 
+            the element along the Y-axis
+        */
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .col-sm-4 {
                 text-align: center;
@@ -423,7 +465,7 @@
         </div>
     </div>
 
-    <div id="contact" class="container-fluid bg-grey">
+    <div id="contact" class="container-fluid slideanim bg-grey">
         <h2 class="text-center">CONTACT</h2>
         <div class="row">
             <div class="col-sm-5">
@@ -458,7 +500,7 @@
     <!-- Image of location/map -->
     <img src="https://www.w3schools.com/bootstrap/map.jpg" class="img-responsive" style="width:100%" />
 
-    <footer class="container-fluid text-center">
+    <footer class="container-fluid slideanim text-center">
         <a href="#myPage" title="To Top">
             <span class="glyphicon glyphicon-chevron-up"></span>
         </a>
@@ -491,7 +533,18 @@
                     });
                 } // End if
             });
-        })
+        });
+
+        $(window).scroll(function () {
+            $(".slideanim").each(function () {
+                var pos = $(this).offset().top;
+
+                var winTop = $(window).scrollTop();
+                if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                }
+            });
+        });
     </script>
 
 </body>
