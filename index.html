@@ -90,6 +90,17 @@
             background-color: #fff;
             color: #000;
         }
+
+        .modal-header, h4, .close {
+            background-color: #333;
+            color: #fff !important;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .modal-header, .modal-body {
+            padding: 40px 50px;
+        }
     </style>
 </head>
 <body>
@@ -208,7 +219,7 @@
                              alt="Paris" width="400" height="300" />
                         <p><strong>Paris</strong></p>
                         <p>Fri. 27 November 2015</p>
-                        <button class="btn">Buy Tickets</button>
+                        <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -217,7 +228,7 @@
                              alt="New York" width="400" height="300" />
                         <p><strong>New York</strong></p>
                         <p>Sat. 28 November 2015</p>
-                        <button class="btn">Buy Tickets</button>
+                        <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -226,8 +237,48 @@
                              alt="San Francisco" width="400" height="300" />
                         <p><strong>San Francisco</strong></p>
                         <p>Sun. 29 November 2015</p>
-                        <button class="btn">Buy Tickets</button>
+                        <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="psw">
+                                <span class="glyphicon glyphicon-shopping-cart"></span> 
+                                Tickets, $23 per person
+                            </label>
+                            <input type="number" class="form-control" id="psw" placeholder="How many?" />
+                        </div>
+                        <div class="form-group">
+                            <label for="username">
+                                <span class="glyphicon glyphicon-user"></span> Send To
+                            </label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter email" />
+                        </div>
+                        <button type="submit" class="btn btn-block">Pay
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cancel
+                    </button>
+                    <p>Need <a href="#">help?</a></p>
                 </div>
             </div>
         </div>
